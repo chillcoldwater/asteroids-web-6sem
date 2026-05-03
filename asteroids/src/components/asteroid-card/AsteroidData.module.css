@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dino {
+    margin-top: auto;
+    position: relative;
+    left: 20px;
+}
+
+.asteroidName {
+    font: bold;
+    font-size: 2em;
+    text-decoration: underline;
+}
