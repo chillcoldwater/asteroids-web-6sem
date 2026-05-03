@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.selected {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.pointer {
+    cursor: pointer;
+}

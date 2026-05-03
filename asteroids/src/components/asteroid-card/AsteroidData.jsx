@@ -25,24 +25,29 @@ const getAsteroidStyle = (diameter) => {
     };
   }
 };
-export const AsteroidData = ({ name, date, distance, diameter }) => {
-  const InfoRow = ({ label, value }) => (
+
+const InfoRow = ({ label, value }) => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "baseline",
+      marginBottom: "1em",
+      gap: "1px",
+    }}
+  >
+    <span style={{ whiteSpace: "nowrap" }}>{label}</span>
     <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "baseline",
-        marginBottom: "1em",
-        gap: "1px",
-      }}
-    >
-      <span style={{ whiteSpace: "nowrap" }}>{label}</span>
-      <div
-        style={{ flex: 1, borderBottom: "0.2em dotted #000", height: "1px" }}
-      ></div>
-      <span style={{ whiteSpace: "nowrap" }}>{value}</span>
-    </div>
-  );
+      style={{ flex: 1, borderBottom: "0.2em dotted #000", height: "1px" }}
+    ></div>
+    <span style={{ whiteSpace: "nowrap" }}>{value}</span>
+  </div>
+);
+
+export const AsteroidData = (props) => {
+  const { name, date, distance, diameter, isKilometers } = props;
+  const distanceMark = isKilometers ? " км" : " LD"
+  const lunarDistance = 384400
   return (
     <div className={styles.container} style={getAsteroidStyle(diameter)}>
       <div className={styles.dino}>
@@ -57,7 +62,7 @@ export const AsteroidData = ({ name, date, distance, diameter }) => {
         <div className={styles.asteroidName}>{name}</div>
         <div>
           <InfoRow label="Дата" value={date} />
-          <InfoRow label="Расстояние" value={distance} />
+          <InfoRow label="Расстояние" value={(isKilometers ? distance : (distance / lunarDistance).toFixed(3)) + distanceMark} />
           <InfoRow label="Размер" value={diameter} />
         </div>
       </div>

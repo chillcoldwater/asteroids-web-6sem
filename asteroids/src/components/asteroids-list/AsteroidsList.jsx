@@ -1,33 +1,28 @@
+import { useState } from "react";
 import { AsteroidCard } from "../asteroid-card/AsteroidCard";
 import styles from "./AsteroidsList.module.css";
+import { AsteroidFilters } from "../asteroid-filters/AsteroidFilters";
+import { AsteroidController } from "../../AsteroidController";
 
 export const AsteroidsList = () => {
+  const [isOnlyDanger, setIsOnlyDanger] = useState(false);
+  const [isKilometers, setIsKilometers] = useState(true);
+  const [asteroids, setAsteroids] = useState(AsteroidController.getAsteroids())
   return (
     <div className={styles.asteroids}>
-      <AsteroidCard
-        name={"арбуз"}
-        distance={5145}
-        diameter={500}
-        date={"30 мая 2020"}
+      <AsteroidFilters
+        isOnlyDanger={isOnlyDanger}
+        setIsOnlyDanger={setIsOnlyDanger}
+        isKilometers={isKilometers}
+        setIsKilometers={setIsKilometers}
       />
-      <AsteroidCard
-        name={"дыня"}
-        distance={1000}
-        diameter={100}
-        date={"25 мая 2020"}
-      />
-      <AsteroidCard
-        name={"вкусный фрукт"}
-        distance={3000}
-        diameter={300}
-        date={"24 мая 2020"}
-      />
-      <AsteroidCard
-        name={"яблоко"}
-        distance={70000}
-        diameter={700}
-        date={"23 мая 2020"}
-      />
+      {isOnlyDanger
+        ? asteroids
+            .filter((it) => it.isDanger)
+            .map((it) => <AsteroidCard {...it} isKilometers={isKilometers} />)
+        : asteroids.map((it) => (
+            <AsteroidCard {...it} isKilometers={isKilometers} />
+          ))}
     </div>
   );
 };
