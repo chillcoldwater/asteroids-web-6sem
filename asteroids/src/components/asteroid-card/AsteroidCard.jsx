@@ -5,6 +5,7 @@ import { AsteroidData } from "./AsteroidData";
 export const AsteroidCard = (props) => {
   
   const {name, date, distance, diameter, isDanger} = props
+  const {isKilometers} = props
 
   return (
     <div className={isDanger ? styles.containerDanger : styles.container}>
@@ -13,6 +14,7 @@ export const AsteroidCard = (props) => {
         date={date}
         distance={distance}
         diameter={diameter}
+        isKilometers={isKilometers}
       />
       <AsteroidAction isDanger={isDanger} />
     </div>
