@@ -45,7 +45,7 @@ const InfoRow = ({ label, value }) => (
 );
 
 export const AsteroidData = (props) => {
-  const { name, date, distance, diameter} = props;
+  const { name, date, distance, diameter } = props;
   return (
     <div className={styles.container} style={getAsteroidStyle(diameter)}>
       <div className={styles.dino}>

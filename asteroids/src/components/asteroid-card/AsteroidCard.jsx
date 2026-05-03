@@ -14,7 +14,7 @@ export const AsteroidCard = (props) => {
         distance={distance}
         diameter={diameter}
       />
-      <AsteroidAction />
+      <AsteroidAction isDanger={isDanger} />
     </div>
   );
 };
