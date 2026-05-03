@@ -4,19 +4,18 @@ import styles from "./AsteroidsList.module.css";
 import { AsteroidFilters } from "../asteroid-filters/AsteroidFilters";
 
 export const AsteroidsList = () => {
-  const [isOnlyDanger, setIsOnlyDanger] = useState(false)
+  const [isOnlyDanger, setIsOnlyDanger] = useState(false);
   return (
     <div className={styles.asteroids}>
-      <AsteroidFilters isOnlyDanger={isOnlyDanger} setIsOnlyDanger={setIsOnlyDanger}/>
-      {asteroids.map(({ name, distance, diameter, date, isDanger }) => (
-        <AsteroidCard
-          name={name}
-          distance={distance}
-          diameter={diameter}
-          date={date}
-          isDanger={isDanger}
-        />
-      ))}
+      <AsteroidFilters
+        isOnlyDanger={isOnlyDanger}
+        setIsOnlyDanger={setIsOnlyDanger}
+      />
+      {isOnlyDanger
+        ? asteroids
+            .filter((it) => it.isDanger)
+            .map((it) => <AsteroidCard {...it} />)
+        : asteroids.map((it) => <AsteroidCard {...it} />)}
     </div>
   );
 };
