@@ -1,13 +1,9 @@
+import { NavLink } from "react-router";
+import styles from "./Header.module.css"
+
 export const Header = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "baseline",
-        borderBottom: "solid",
-        marginBottom: "2em",
-        width: "100%",
-      }}
+    <div className={styles.header}
     >
       <div
         style={{
@@ -22,7 +18,10 @@ export const Header = () => {
         </span>
       </div>
       <div style={{ flex: 1 }}></div>
-      <div>Астероиды/Уничтожение</div>
+      <div>
+        <NavLink to="/" className={({ isActive}) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>Астероиды</NavLink>
+        /
+        <NavLink to='/destroyment' className={({ isActive}) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>Уничтожение</NavLink></div>
     </div>
   );
 };
