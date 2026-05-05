@@ -2,8 +2,18 @@
     font-size: medium;
     opacity: 0.8;
 }
+
 .active {
     font-weight: bold;
     font-size: x-large;
     opacity: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-bottom: solid;
+    margin-bottom: 2em;
+    width: 100%,
 }

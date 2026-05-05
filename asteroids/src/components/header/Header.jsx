@@ -3,14 +3,7 @@ import styles from "./Header.module.css"
 
 export const Header = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "baseline",
-        borderBottom: "solid",
-        marginBottom: "2em",
-        width: "100%",
-      }}
+    <div className={styles.header}
     >
       <div
         style={{

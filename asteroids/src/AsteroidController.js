@@ -11,6 +11,11 @@ export class AsteroidController {
     return asteroids;
   }
 
+  static async getAsteroid(asteroidId) {
+    const response = await fetch(`https://neows-proxy.vercel.app/api/asteroids/${asteroidId}`)
+    const data = await response.json()
+    return data
+  }
   static mapAsteroid(asteroid) {
     const diameterMeters = asteroid.estimated_diameter.meters;
     const calculatedDiameterMeters = (

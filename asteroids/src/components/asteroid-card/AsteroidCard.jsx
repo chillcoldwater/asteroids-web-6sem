@@ -4,12 +4,12 @@ import { AsteroidData } from "./AsteroidData";
 import { Link } from "react-router";
 
 export const AsteroidCard = (props) => {
-  const { name, date, distance, diameter, isDanger } = props;
+  const { id, name, date, distance, diameter, isDanger } = props;
   const { isKilometers } = props;
 
   return (
-    <Link to={`asteroids/${name}`}>
-      <div className={isDanger ? styles.containerDanger : styles.container}>
+    <Link className={styles.link} to={`asteroids/${id}`}>
+      <div className={isDanger ? `${styles.container} ${styles.danger}` : `${styles.container} ${styles.safe}`}>
         <AsteroidData
           name={name}
           date={date}

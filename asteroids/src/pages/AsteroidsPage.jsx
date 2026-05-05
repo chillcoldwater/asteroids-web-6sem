@@ -5,7 +5,7 @@ import styles from "./AsteroidsPage.module.css";
 
 export const AsteroidsPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
       <AsteroidsList />
       <Footer />

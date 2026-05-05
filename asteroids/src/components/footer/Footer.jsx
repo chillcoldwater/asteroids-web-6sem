@@ -1,5 +1,6 @@
+import styles from "./Footer.module.css";
 export const Footer = () => {
-    return <div style={{margin: "2em"}}>
-        2026 © Все права и планета защищены
-    </div>
-}
+  return (
+    <div className={styles.footer}>2026 © Все права и планета защищены</div>
+  );
+};
