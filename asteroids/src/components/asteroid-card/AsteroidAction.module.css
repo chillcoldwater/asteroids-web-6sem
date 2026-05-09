@@ -6,8 +6,19 @@
     align-items: center;
 }
 
-.button {
+.addButton {
+    justify-content: center;
     background: #186DD6;
+    width: 158px;
+    height: 48px;
+    border-radius: 24px;
+    gap: 4px;
+    padding: 10px 16px;
+}
+
+.removeButton {
+    justify-content: center;
+    background: #d63118;
     width: 158px;
     height: 48px;
     border-radius: 24px;

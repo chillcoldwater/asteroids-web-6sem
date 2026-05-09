@@ -22,9 +22,9 @@ export const AsteroidsList = () => {
       {isOnlyDanger
         ? asteroids
             .filter((it) => it.isDanger)
-            .map((it) => <AsteroidCard {...it} isKilometers={isKilometers} />)
+            .map((it) => <AsteroidCard {...it} isKilometers={isKilometers} typeOfButton="add" />)
         : asteroids.map((it) => (
-            <AsteroidCard {...it} isKilometers={isKilometers} />
+            <AsteroidCard {...it} isKilometers={isKilometers} typeOfButton="add" />
           ))}
     </div>
   );
