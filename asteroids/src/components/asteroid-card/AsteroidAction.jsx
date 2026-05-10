@@ -1,10 +1,11 @@
-import { useDestroymentAction } from "../../ActionContext";
+import { useBasket } from "../../ActionContext";
 import styles from "./AsteroidAction.module.css";
+import { memo } from "react";
 
-export const AsteroidAction = (props) => {
+export const AsteroidAction = memo ((props) => {
   const { isDanger, asteroid, typeOfButton } = props;
   const { addToDestroymentBusket, removeFromDestroymentBusket } =
-    useDestroymentAction();
+    useBasket()
   const handleAdd = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -28,4 +29,4 @@ export const AsteroidAction = (props) => {
       </button>
     </div>
   );
-};
+});
